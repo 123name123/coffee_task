@@ -3,13 +3,14 @@ from PyQt5.QtCore import Qt, QPoint
 from PyQt5 import uic
 from PyQt5.QtGui import QPainter, QColor, QBrush, QPen, QPolygon
 import sys
+from UI import Ui_MainWindow
 from random import randrange
 
 
-class Main(QMainWindow):
+class Main(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('UI.ui', self)
+        self.setupUi(self)
         self.initUI()
 
     def initUI(self):
@@ -30,7 +31,7 @@ class Main(QMainWindow):
 
     def paint(self, qp):
         if self.flag:
-            qp.setBrush(QColor(255, 255, 0))
+            qp.setBrush(QColor(randrange(256), randrange(256), randrange(256)))
             ch = randrange(100)
             qp.drawEllipse(randrange(400), randrange(400), ch, ch)
 
