@@ -2,13 +2,14 @@ import sys
 import sqlite3
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget
 from PyQt5.QtWidgets import QTableWidgetItem, QInputDialog
-from PyQt5 import uic
+from Form import Ui_MainWindow
+from EditForm import Ui_Form
 
 
-class Example(QMainWindow):
+class Example(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('UI.ui', self)
+        self.setupUi(self)
         self.setWindowTitle('Program')
         self.load.clicked.connect(self.loadTable)
         self.red.clicked.connect(self.runedit)
@@ -16,7 +17,7 @@ class Example(QMainWindow):
         self.titles = None
 
     def loadTable(self):
-        con = sqlite3.connect('coffee.db')
+        con = sqlite3.connect('data\coffee.db')
         cur = con.cursor()
         result = cur.execute("select * from Кофе").fetchall()
         self.table.setColumnCount(7)
@@ -34,16 +35,16 @@ class Example(QMainWindow):
         self.sec.show()
 
 
-class Edit(QWidget):
+class Edit(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
-        uic.loadUi('addEditCoffeeForm.ui', self)
+        self.setupUi(self)
         self.setWindowTitle('Program')
         self.table.itemChanged.connect(self.item_changed)
         self.add.clicked.connect(self.runadd)
         self.delet.clicked.connect(self.rundel)
         self.save.clicked.connect(self.runsave)
-        self.con = sqlite3.connect('coffee.db')
+        self.con = sqlite3.connect('data\coffee.db')
         self.modified = {}
         self.titles = None
         self.loadTable()
