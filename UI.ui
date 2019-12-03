@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>998</width>
-    <height>558</height>
+    <width>1026</width>
+    <height>617</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,47 @@
    <widget class="QTableWidget" name="table">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>10</y>
+      <x>10</x>
+      <y>60</y>
       <width>1001</width>
       <height>501</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="load">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>501</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Загрузить\обновить базу</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="red">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>0</y>
+      <width>501</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Редактировать базу</string>
     </property>
    </widget>
   </widget>
@@ -30,7 +66,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>998</width>
+     <width>1026</width>
      <height>26</height>
     </rect>
    </property>
